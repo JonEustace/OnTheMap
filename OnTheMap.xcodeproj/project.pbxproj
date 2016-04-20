@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		886ABB841C7F6AD500553A14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABB831C7F6AD500553A14 /* AppDelegate.swift */; };
-		886ABB861C7F6AD500553A14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABB851C7F6AD500553A14 /* ViewController.swift */; };
+		886ABB861C7F6AD500553A14 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABB851C7F6AD500553A14 /* LoginViewController.swift */; };
 		886ABB891C7F6AD500553A14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886ABB871C7F6AD500553A14 /* Main.storyboard */; };
 		886ABB8B1C7F6AD500553A14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886ABB8A1C7F6AD500553A14 /* Assets.xcassets */; };
 		886ABB8E1C7F6AD500553A14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886ABB8C1C7F6AD500553A14 /* LaunchScreen.storyboard */; };
 		886ABB991C7F6AD500553A14 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABB981C7F6AD500553A14 /* OnTheMapTests.swift */; };
 		886ABBA41C7F6AD500553A14 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBA31C7F6AD500553A14 /* OnTheMapUITests.swift */; };
+		886ABBB51C7FCEBB00553A14 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBB41C7FCEBB00553A14 /* UdacityConstants.swift */; };
+		886ABBB71C7FCECB00553A14 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBB61C7FCECB00553A14 /* UdacityClient.swift */; };
+		886ABBBA1C80C2AE00553A14 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBB91C80C2AE00553A14 /* MapViewController.swift */; };
+		886ABBBC1C80C37800553A14 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBBB1C80C37800553A14 /* ListViewController.swift */; };
+		886ABBBE1C80C3F900553A14 /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBBD1C80C3F900553A14 /* InformationPostingViewController.swift */; };
+		886ABBC01C80C84800553A14 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBBF1C80C84800553A14 /* ParseClient.swift */; };
+		886ABBC21C85EAEB00553A14 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBC11C85EAEB00553A14 /* StudentInformation.swift */; };
+		886ABBC41C8608FE00553A14 /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBC31C8608FE00553A14 /* Students.swift */; };
+		886ABBC71C860D1100553A14 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBC61C860D1100553A14 /* Reachability.swift */; };
+		886ABBC91C87366A00553A14 /* MapPinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBC81C87366A00553A14 /* MapPinController.swift */; };
+		88AA36791CC162BC0040FFDE /* StudentInformationCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA36781CC162BC0040FFDE /* StudentInformationCollection.swift */; };
+		88AA367B1CC17B1B0040FFDE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA367A1CC17B1B0040FFDE /* ViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,7 @@
 /* Begin PBXFileReference section */
 		886ABB801C7F6AD500553A14 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886ABB831C7F6AD500553A14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		886ABB851C7F6AD500553A14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		886ABB851C7F6AD500553A14 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		886ABB881C7F6AD500553A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		886ABB8A1C7F6AD500553A14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		886ABB8D1C7F6AD500553A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +59,18 @@
 		886ABB9F1C7F6AD500553A14 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		886ABBA31C7F6AD500553A14 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		886ABBA51C7F6AD500553A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886ABBB41C7FCEBB00553A14 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		886ABBB61C7FCECB00553A14 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		886ABBB91C80C2AE00553A14 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		886ABBBB1C80C37800553A14 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		886ABBBD1C80C3F900553A14 /* InformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
+		886ABBBF1C80C84800553A14 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		886ABBC11C85EAEB00553A14 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
+		886ABBC31C8608FE00553A14 /* Students.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
+		886ABBC61C860D1100553A14 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		886ABBC81C87366A00553A14 /* MapPinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinController.swift; sourceTree = "<group>"; };
+		88AA36781CC162BC0040FFDE /* StudentInformationCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformationCollection.swift; sourceTree = "<group>"; };
+		88AA367A1CC17B1B0040FFDE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +101,7 @@
 		886ABB771C7F6AD500553A14 = {
 			isa = PBXGroup;
 			children = (
+				886ABBB11C7F6AE500553A14 /* Models */,
 				886ABB821C7F6AD500553A14 /* OnTheMap */,
 				886ABB971C7F6AD500553A14 /* OnTheMapTests */,
 				886ABBA21C7F6AD500553A14 /* OnTheMapUITests */,
@@ -97,8 +122,8 @@
 		886ABB821C7F6AD500553A14 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				886ABBB81C80C27D00553A14 /* Controllers */,
 				886ABB831C7F6AD500553A14 /* AppDelegate.swift */,
-				886ABB851C7F6AD500553A14 /* ViewController.swift */,
 				886ABB871C7F6AD500553A14 /* Main.storyboard */,
 				886ABB8A1C7F6AD500553A14 /* Assets.xcassets */,
 				886ABB8C1C7F6AD500553A14 /* LaunchScreen.storyboard */,
@@ -123,6 +148,57 @@
 				886ABBA51C7F6AD500553A14 /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		886ABBB11C7F6AE500553A14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				886ABBB21C7F6AF000553A14 /* Clients */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		886ABBB21C7F6AF000553A14 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				886ABBC51C860D0400553A14 /* NetworkChecker */,
+				886ABBB31C7F6AF500553A14 /* Udacity */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		886ABBB31C7F6AF500553A14 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				886ABBB41C7FCEBB00553A14 /* UdacityConstants.swift */,
+				886ABBB61C7FCECB00553A14 /* UdacityClient.swift */,
+				886ABBBF1C80C84800553A14 /* ParseClient.swift */,
+				886ABBC11C85EAEB00553A14 /* StudentInformation.swift */,
+				886ABBC31C8608FE00553A14 /* Students.swift */,
+				88AA36781CC162BC0040FFDE /* StudentInformationCollection.swift */,
+			);
+			name = Udacity;
+			sourceTree = "<group>";
+		};
+		886ABBB81C80C27D00553A14 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				886ABBB91C80C2AE00553A14 /* MapViewController.swift */,
+				88AA367A1CC17B1B0040FFDE /* ViewControllerExtension.swift */,
+				886ABBBB1C80C37800553A14 /* ListViewController.swift */,
+				886ABBBD1C80C3F900553A14 /* InformationPostingViewController.swift */,
+				886ABBC81C87366A00553A14 /* MapPinController.swift */,
+				886ABB851C7F6AD500553A14 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		886ABBC51C860D0400553A14 /* NetworkChecker */ = {
+			isa = PBXGroup;
+			children = (
+				886ABBC61C860D1100553A14 /* Reachability.swift */,
+			);
+			name = NetworkChecker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886ABB861C7F6AD500553A14 /* ViewController.swift in Sources */,
+				886ABBB71C7FCECB00553A14 /* UdacityClient.swift in Sources */,
+				886ABB861C7F6AD500553A14 /* LoginViewController.swift in Sources */,
+				88AA367B1CC17B1B0040FFDE /* ViewControllerExtension.swift in Sources */,
+				886ABBBC1C80C37800553A14 /* ListViewController.swift in Sources */,
 				886ABB841C7F6AD500553A14 /* AppDelegate.swift in Sources */,
+				88AA36791CC162BC0040FFDE /* StudentInformationCollection.swift in Sources */,
+				886ABBBE1C80C3F900553A14 /* InformationPostingViewController.swift in Sources */,
+				886ABBBA1C80C2AE00553A14 /* MapViewController.swift in Sources */,
+				886ABBC91C87366A00553A14 /* MapPinController.swift in Sources */,
+				886ABBC21C85EAEB00553A14 /* StudentInformation.swift in Sources */,
+				886ABBC71C860D1100553A14 /* Reachability.swift in Sources */,
+				886ABBC41C8608FE00553A14 /* Students.swift in Sources */,
+				886ABBC01C80C84800553A14 /* ParseClient.swift in Sources */,
+				886ABBB51C7FCEBB00553A14 /* UdacityConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +575,7 @@
 				886ABBAA1C7F6AD500553A14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		886ABBAB1C7F6AD500553A14 /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +584,7 @@
 				886ABBAD1C7F6AD500553A14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		886ABBAE1C7F6AD500553A14 /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +593,7 @@
 				886ABBB01C7F6AD500553A14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
