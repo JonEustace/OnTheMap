@@ -36,12 +36,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             loginView.readPermissions = ["public_profile", "email"]
             loginView.delegate = self
+           
         }
         
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("User Logged In")
+       
         
         if ((error) != nil)
         {
@@ -52,6 +53,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             alert("You cancelled FB login, please try again")
         }
         else {
+             setAppdelegateFromFB()
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")

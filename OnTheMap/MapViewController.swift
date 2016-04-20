@@ -129,7 +129,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     @IBAction func logout(sender: AnyObject) {
         
         uda.deleteSession()
-       
+        FBSDKLoginManager().logOut()
         appDelegate.firstName = nil
         appDelegate.lastName = nil
         appDelegate.sessionID = nil
