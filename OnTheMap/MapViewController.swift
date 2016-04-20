@@ -27,7 +27,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.alpha = 0.1
         getStudentLocations()
         
     }
@@ -40,9 +40,15 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     
     
     @IBAction func reload() {
+        
+        self.mapView.alpha = 0.1
+      
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
+
         mapView.removeAnnotations( annotationsToRemove )
+     
         getStudentLocations()
+      
         self.loadPins()
     }
     
@@ -79,6 +85,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             
             // Finally we place the annotation in an array of annotations.
             annotations.append(annotation)
+           
             
         }
         
@@ -86,6 +93,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
         
         dispatch_async(dispatch_get_main_queue()) {
             self.mapView.addAnnotations(annotations)
+             self.mapView.alpha = 1.0
         }
         // self.mapView.addAnnotations(annotations)
     }
@@ -139,6 +147,8 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     }
     
     func getStudentLocations(){
+       
+        
         
         parse.accessParse(self, parameters: ["limit": 100, "order" : "-updatedAt"]) { (data, error) -> Void in
             
@@ -168,11 +178,4 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             
         }
     }
-    
-    /*
-    func alert(message : String){
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }*/
 }

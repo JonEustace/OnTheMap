@@ -123,7 +123,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucL-bL-8YO">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucL-bL-8YO">
                                 <rect key="frame" x="0.0" y="65" width="600" height="486"/>
                                 <connections>
                                     <outlet property="delegate" destination="Dww-FO-FRh" id="z9A-ok-If8"/>
@@ -144,7 +144,7 @@
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="refresh" id="fax-rg-4N9">
                                                 <connections>
-                                                    <action selector="reload:" destination="Dww-FO-FRh" id="Amd-ns-T5Z"/>
+                                                    <action selector="reload" destination="Dww-FO-FRh" id="Xuu-Nk-kUN"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem image="pin" id="9Xr-fK-2yD">
@@ -459,6 +459,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3DA-Io-Xan">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gac-o6-RRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AJV-cV-PwD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gh-58-G88">
@@ -470,7 +471,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CPF-ga-Djt"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gac-o6-RRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087" y="318"/>
         </scene>
