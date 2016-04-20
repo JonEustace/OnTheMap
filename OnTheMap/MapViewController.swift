@@ -27,16 +27,22 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          self.navigationController?.navigationBarHidden = true
+        
         getStudentLocations()
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+         self.navigationController?.navigationBarHidden = true
+        reload()
+    }
     
     
-    @IBAction func reload(sender: AnyObject) {
+    
+    @IBAction func reload() {
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
         mapView.removeAnnotations( annotationsToRemove )
+        getStudentLocations()
         self.loadPins()
     }
     

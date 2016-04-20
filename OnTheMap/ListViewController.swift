@@ -20,8 +20,12 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+  
+    
     func loadData(){
         parse.accessParse(self, parameters: ["limit" : "50", "order" : "-updatedAt"]) { (data, error) -> Void in
+            
+            print(data)
             
             if error.code == 0{
                 
@@ -46,6 +50,7 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func viewDidAppear(animated: Bool) {
+         self.navigationController?.navigationBarHidden = true
         self.loadData()
     }
     

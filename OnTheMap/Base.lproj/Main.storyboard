@@ -74,13 +74,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pdS-Ho-hTe"/>
                                 </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tj1-5B-V1K" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="210" y="443" width="180" height="40"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.36862745098039218" blue="0.058823529411764705" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="VQL-rj-ylm"/>
+                                    <constraint firstAttribute="height" constant="40" id="edy-GW-M8Q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.45490196078431372" blue="0.054901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Y7h-ny-N53" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="98q-yf-T2h"/>
+                            <constraint firstItem="tj1-5B-V1K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cuh-PQ-01s"/>
                             <constraint firstItem="8lN-cl-C70" firstAttribute="top" secondItem="tDq-DW-J1Y" secondAttribute="bottom" constant="15" id="Nsj-Sn-aOh"/>
                             <constraint firstItem="qOy-VO-Bfk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QGn-ui-Yqh"/>
                             <constraint firstItem="8lN-cl-C70" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tia-a6-NdB"/>
+                            <constraint firstItem="tj1-5B-V1K" firstAttribute="top" secondItem="8lN-cl-C70" secondAttribute="bottom" constant="38" id="eus-Gf-zuS"/>
                             <constraint firstItem="tDq-DW-J1Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f4g-oq-4cz"/>
                             <constraint firstItem="Y7h-ny-N53" firstAttribute="top" secondItem="qOy-VO-Bfk" secondAttribute="bottom" constant="11" id="faF-MO-t5e"/>
                             <constraint firstItem="jvI-pe-w8D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gUl-3c-1Ek"/>
@@ -91,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2pD-0x-pow"/>
                     <connections>
+                        <outlet property="loginView" destination="tj1-5B-V1K" id="ZgQ-20-SdX"/>
                         <outlet property="password" destination="tDq-DW-J1Y" id="8fj-sN-tsY"/>
                         <outlet property="username" destination="jvI-pe-w8D" id="2IM-eL-Dul"/>
                         <segue destination="HCy-XF-kjJ" kind="show" identifier="MapListSegue" id="c0k-Lq-hLo"/>

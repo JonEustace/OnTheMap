@@ -26,6 +26,9 @@
 		886ABBC91C87366A00553A14 /* MapPinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ABBC81C87366A00553A14 /* MapPinController.swift */; };
 		88AA36791CC162BC0040FFDE /* StudentInformationCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA36781CC162BC0040FFDE /* StudentInformationCollection.swift */; };
 		88AA367B1CC17B1B0040FFDE /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AA367A1CC17B1B0040FFDE /* ViewControllerExtension.swift */; };
+		88AA367D1CC7CFDD0040FFDE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AA367C1CC7CFDD0040FFDE /* FBSDKCoreKit.framework */; };
+		88AA36801CC7D0C40040FFDE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AA367F1CC7D0C40040FFDE /* FBSDKLoginKit.framework */; };
+		88AA36821CC7D0D20040FFDE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AA36811CC7D0D20040FFDE /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,10 @@
 		886ABBC81C87366A00553A14 /* MapPinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinController.swift; sourceTree = "<group>"; };
 		88AA36781CC162BC0040FFDE /* StudentInformationCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformationCollection.swift; sourceTree = "<group>"; };
 		88AA367A1CC17B1B0040FFDE /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		88AA367C1CC7CFDD0040FFDE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		88AA367E1CC7CFFD0040FFDE /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		88AA367F1CC7D0C40040FFDE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		88AA36811CC7D0D20040FFDE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AA36821CC7D0D20040FFDE /* Bolts.framework in Frameworks */,
+				88AA36801CC7D0C40040FFDE /* FBSDKLoginKit.framework in Frameworks */,
+				88AA367D1CC7CFDD0040FFDE /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +111,9 @@
 		886ABB771C7F6AD500553A14 = {
 			isa = PBXGroup;
 			children = (
+				88AA36811CC7D0D20040FFDE /* Bolts.framework */,
+				88AA367F1CC7D0C40040FFDE /* FBSDKLoginKit.framework */,
+				88AA367C1CC7CFDD0040FFDE /* FBSDKCoreKit.framework */,
 				886ABBB11C7F6AE500553A14 /* Models */,
 				886ABB821C7F6AD500553A14 /* OnTheMap */,
 				886ABB971C7F6AD500553A14 /* OnTheMapTests */,
@@ -128,6 +141,7 @@
 				886ABB8A1C7F6AD500553A14 /* Assets.xcassets */,
 				886ABB8C1C7F6AD500553A14 /* LaunchScreen.storyboard */,
 				886ABB8F1C7F6AD500553A14 /* Info.plist */,
+				88AA367E1CC7CFFD0040FFDE /* Bridging-Header.h */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -490,10 +504,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeustace.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMap/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -501,10 +520,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeustace.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMap/Bridging-Header.h";
 			};
 			name = Release;
 		};
