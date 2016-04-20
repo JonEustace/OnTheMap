@@ -58,15 +58,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
-                print("hello")
-                print(FBSDKAccessToken.currentAccessToken())
-                
+               
+               
             }
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
+       alert("User Logged Out")
     }
     
     func setAppdelegateFromFB(){
