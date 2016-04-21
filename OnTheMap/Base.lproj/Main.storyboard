@@ -412,13 +412,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a Link to Share Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-Ox-K9s">
+                                <rect key="frame" x="0.0" y="44" width="600" height="169"/>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="lMy-0s-Lyl"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eag-j1-n5D" id="Bb3-n2-MVL"/>
+                                </connections>
+                            </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PrZ-Bo-5Es">
                                 <rect key="frame" x="0.0" y="213" width="600" height="387"/>
                                 <connections>
                                     <outlet property="delegate" destination="eag-j1-n5D" id="aFE-ud-LSr"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-jD-p1I">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-jD-p1I">
                                 <rect key="frame" x="260" y="470" width="81" height="30"/>
                                 <color key="backgroundColor" red="0.75294117647058822" green="0.80000000000000004" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -429,28 +442,33 @@
                                     <action selector="submit:" destination="eag-j1-n5D" eventType="touchUpInside" id="QZ0-pk-MPc"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a Link to Share Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-Ox-K9s">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="213"/>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.31372549019607843" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzk-W6-CoN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="213" id="lMy-0s-Lyl"/>
+                                    <constraint firstAttribute="height" constant="44" id="h2M-TX-G0o"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="eag-j1-n5D" id="Bb3-n2-MVL"/>
-                                </connections>
-                            </textView>
+                                <items>
+                                    <navigationItem id="RZ7-bD-Tfo">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="ydT-wU-CZh">
+                                            <connections>
+                                                <action selector="cancel:" destination="eag-j1-n5D" id="Nsx-Be-thN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="56Z-Ox-K9s" firstAttribute="top" secondItem="Aea-ld-ZwE" secondAttribute="topMargin" id="4Kl-VU-acu"/>
+                            <constraint firstItem="Rzk-W6-CoN" firstAttribute="top" secondItem="Aea-ld-ZwE" secondAttribute="topMargin" id="1j6-4U-wI0"/>
+                            <constraint firstItem="56Z-Ox-K9s" firstAttribute="top" secondItem="Aea-ld-ZwE" secondAttribute="topMargin" constant="44" id="4Kl-VU-acu"/>
+                            <constraint firstItem="Rzk-W6-CoN" firstAttribute="leading" secondItem="Aea-ld-ZwE" secondAttribute="leadingMargin" constant="-20" id="DP4-lA-C7Q"/>
                             <constraint firstItem="PrZ-Bo-5Es" firstAttribute="leading" secondItem="Aea-ld-ZwE" secondAttribute="leadingMargin" constant="-20" id="EJj-v5-j5R"/>
                             <constraint firstItem="56Z-Ox-K9s" firstAttribute="leading" secondItem="Aea-ld-ZwE" secondAttribute="leadingMargin" constant="-20" id="G1V-hH-yGA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rzk-W6-CoN" secondAttribute="trailing" constant="-20" id="Ivg-eF-cQQ"/>
                             <constraint firstItem="1xX-jD-p1I" firstAttribute="centerX" secondItem="Aea-ld-ZwE" secondAttribute="centerX" id="WEU-gm-NhA"/>
                             <constraint firstItem="PrZ-Bo-5Es" firstAttribute="top" secondItem="56Z-Ox-K9s" secondAttribute="bottom" id="eDL-9K-ioD"/>
-                            <constraint firstItem="ph0-iE-v56" firstAttribute="top" secondItem="1xX-jD-p1I" secondAttribute="bottom" constant="51" id="fwJ-U3-8R7"/>
+                            <constraint firstItem="ph0-iE-v56" firstAttribute="top" secondItem="1xX-jD-p1I" secondAttribute="bottom" constant="100" id="fwJ-U3-8R7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PrZ-Bo-5Es" secondAttribute="trailing" constant="-20" id="mj6-bq-aXP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="56Z-Ox-K9s" secondAttribute="trailing" constant="-20" id="rju-4k-4be"/>
                             <constraint firstItem="PrZ-Bo-5Es" firstAttribute="bottom" secondItem="Aea-ld-ZwE" secondAttribute="bottomMargin" id="vdn-zV-Sja"/>

@@ -41,6 +41,10 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
         textArea.text = ""
     }
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) {}
+    }
+    
     @IBAction func submit(sender: AnyObject) {
         guard textArea.text != "" else{
             return
