@@ -13,7 +13,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var locationTextArea: UITextView!
     @IBOutlet weak var textArea: UITextView!
-
+    
     var coordinates : CLLocationCoordinate2D?
     var annotations : [MKPointAnnotation]?
     var l1 : Double?
@@ -35,7 +35,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
         self.navigationController?.navigationBarHidden = true
         self.textArea.delegate = self
     }
-
+    
     @IBAction func cancel(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true) {}
@@ -63,6 +63,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
             
             if((error) != nil){
                 self.alert("Address not found")
+                self.activityIndicator.stopAnimating()
                 return
             }
             
