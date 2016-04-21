@@ -13,13 +13,14 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var locationTextArea: UITextView!
     @IBOutlet weak var textArea: UITextView!
-    @IBOutlet weak var loadingLabel: UILabel!
+
     var coordinates : CLLocationCoordinate2D?
     var annotations : [MKPointAnnotation]?
     var l1 : Double?
     var l2 : Double?
     var region :  MKCoordinateRegion?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func textViewDidBeginEditing(textView: UITextView) {
         textArea.text = ""
@@ -48,19 +49,17 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
     
     @IBAction func loadPins(sender: AnyObject){
         
-        self.loadingLabel.hidden = false
+        activityIndicator.startAnimating()
+        
         
         if Reachability.isConnectedToNetwork() == false {
             self.alert("Not connected to network.")
-            loadingLabel.hidden = true
             return
-        } else {
-            loadingLabel.hidden = false
         }
         
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(textArea.text!, completionHandler: {(placemarks, error) -> Void in
-            self.loadingLabel.hidden = true
+            
             
             if((error) != nil){
                 self.alert("Address not found")
@@ -81,6 +80,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
                     self.region = MKCoordinateRegion(center: self.coordinates!, span: MKCoordinateSpan(latitudeDelta: 0.75, longitudeDelta: 0.75))
                     
                     dispatch_async(dispatch_get_main_queue()) {
+                        self.activityIndicator.stopAnimating()
                         self.performSegueWithIdentifier("MapPinView", sender: self)
                     }
                 }

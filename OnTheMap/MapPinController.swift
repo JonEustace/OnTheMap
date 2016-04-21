@@ -50,6 +50,11 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
             return
         }
         
+        if Reachability.isConnectedToNetwork() == false {
+            self.alert("Not connected to network.")
+            return
+        }
+        
         parse.createPostRequest(["":""], firstName: self.appDelegate.firstName!, lastName: self.appDelegate.lastName!, mapString: locationString, mediaURL: textArea.text, latitude: l1!, longitude: l2!) { (data, error) -> Void in
             
             

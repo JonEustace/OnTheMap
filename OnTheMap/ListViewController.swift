@@ -24,6 +24,12 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
   
     
     func loadData(){
+        
+        if Reachability.isConnectedToNetwork() == false{
+            alert("Not connected to network.")
+            return
+        }
+        
         parse.accessParse(self, parameters: ["limit" : "50", "order" : "-updatedAt"]) { (data, error) -> Void in
             
             print(data)

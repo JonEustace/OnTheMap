@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     let uda = UdacityClient()
     let p = ParseClient()
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var appDelegate : AppDelegate!
     @IBOutlet weak var loginView: FBSDKLoginButton!
     @IBOutlet weak var username: UITextField!
@@ -95,6 +96,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBAction func login(sender: UIButton) {
         
+        activityIndicatorView.startAnimating()
+        
         guard (Reachability.isConnectedToNetwork() == true) else{
             
             alert("No network connectivity")
@@ -123,6 +126,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     self.appDelegate.lastName = userInfo["lastName"]! as? String
                     
                     dispatch_async(dispatch_get_main_queue()) {
+                        self.activityIndicatorView.stopAnimating()
                         self.performSegueWithIdentifier("MapListSegue", sender: nil)
                     }
                     
