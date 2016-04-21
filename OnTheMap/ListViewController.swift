@@ -12,6 +12,7 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     let parse = ParseClient()
     var records = [[String:AnyObject]]()
+    var udacityClient = UdacityClient()
     
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
@@ -27,19 +28,22 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
             
             print(data)
             
-            if error.code == 0{
+            if error == nil{
                 
                 self.records = (data["results"] as? [[String:AnyObject]])!
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.table.reloadData()
                 }
+            } else {
+                self.alert(error!.localizedDescription)
             }
         }
     }
     
     @IBAction func logout(sender: AnyObject) {
         let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("login")
+        udacityClient.deleteSession()
         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
         
         

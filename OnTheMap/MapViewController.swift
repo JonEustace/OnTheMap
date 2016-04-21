@@ -152,10 +152,11 @@ class MapViewController : UIViewController, MKMapViewDelegate{
         
         parse.accessParse(self, parameters: ["limit": 100, "order" : "-updatedAt"]) { (data, error) -> Void in
             
-            guard error.code == 0 else {
+            guard error == nil else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.alert("download failed")
-                    
+                    self.alert(error!.localizedDescription)
+                  
+                   
                 }
                 return
             }

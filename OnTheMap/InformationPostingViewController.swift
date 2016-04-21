@@ -53,8 +53,9 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
        
         let geocoder = CLGeocoder()
         
-        
+        self.view.alpha = 0.3
         geocoder.geocodeAddressString(textArea.text!, completionHandler: {(placemarks, error) -> Void in
+            self.view.alpha = 1.0
             if((error) != nil){
                 self.alert("Address not found")
                 return

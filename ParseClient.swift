@@ -12,7 +12,7 @@ import UIKit
 class ParseClient : NSObject {
     
     // start a request
-    func accessParse(hostViewController: UIViewController, parameters : [String : AnyObject], completionHandlerToReturnJsonObject: (data: AnyObject!, error: NSError) -> Void){
+    func accessParse(hostViewController: UIViewController, parameters : [String : AnyObject], completionHandlerToReturnJsonObject: (data: AnyObject!, error: NSError?) -> Void){
         
         
         self.createGetRequest(parameters, completionHandlerForGet: {(data, error) in
@@ -28,7 +28,7 @@ class ParseClient : NSObject {
                     completionHandlerToReturnJsonObject(data: nil, error: NSError(domain: "No Data returned", code: 1, userInfo: [NSLocalizedDescriptionKey: "No Data Returned"]))
                     return
                 }
-                completionHandlerToReturnJsonObject(data: data, error: self.noError())
+                completionHandlerToReturnJsonObject(data: data, error: nil)
             })
         })
     }
