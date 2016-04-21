@@ -22,7 +22,7 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
     
     let parse = ParseClient()
     var locationString : String! = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -48,37 +48,37 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
         
         parse.createPostRequest(["":""], firstName: self.appDelegate.firstName!, lastName: self.appDelegate.lastName!, mapString: locationString, mediaURL: textArea.text, latitude: l1!, longitude: l2!) { (data, error) -> Void in
             
-            guard error.code == 0 else {
-                self.alert("Failed to post")
-                return
-            }
+            
             
             dispatch_async(dispatch_get_main_queue()) {
+                guard error.code == 0 else {
+                    self.alert(error.localizedDescription)
+                    return
+                }
                 
-          
-           let vc = self.navigationController?.viewControllers[1]
-           
-            self.navigationController?.popToViewController(vc!, animated: true)
-             
+                let vc = self.navigationController?.viewControllers[1]
+                
+                self.navigationController?.popToViewController(vc!, animated: true)
+                
             }
         }
     }
     
     func loadPins(){
         
-                self.mapView.setRegion(self.region, animated: true)
-                
-                // Here we create the annotation and set its coordiate, title, and subtitle properties
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = self.coordinates
-                
-                // Finally we place the annotation in an array of annotations.
-                self.annotations!.append(annotation)
-                
-                // When the array is complete, we add the annotations to the map.
+        self.mapView.setRegion(self.region, animated: true)
         
-                self.mapView.addAnnotations(self.annotations)
-    
+        // Here we create the annotation and set its coordiate, title, and subtitle properties
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = self.coordinates
+        
+        // Finally we place the annotation in an array of annotations.
+        self.annotations!.append(annotation)
+        
+        // When the array is complete, we add the annotations to the map.
+        
+        self.mapView.addAnnotations(self.annotations)
+        
     }
     
     
@@ -118,5 +118,5 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
         }
     }
     
-
+    
 }

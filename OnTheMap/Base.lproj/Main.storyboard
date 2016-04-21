@@ -338,34 +338,45 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-01-yX3">
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZC-xs-6Do">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="YgR-ih-IFW"/>
+                                        </constraints>
                                         <items>
-                                            <navigationItem id="97s-zQ-nrq">
-                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="xxm-is-w1A">
+                                            <navigationItem id="lgS-Ll-GBd">
+                                                <barButtonItem key="rightBarButtonItem" title="Cancel" id="ixR-hg-G5X">
                                                     <connections>
-                                                        <action selector="cancel:" destination="Hl6-Ps-s0a" id="Xvd-Y2-ezp"/>
+                                                        <action selector="cancel:" destination="Hl6-Ps-s0a" id="HAI-8B-ojt"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKM-2T-iij">
+                                        <rect key="frame" x="270" y="289" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="zKM-2T-iij" firstAttribute="centerX" secondItem="cP2-Wf-eK8" secondAttribute="centerX" id="0pR-qo-P8t"/>
                                     <constraint firstItem="cP2-Wf-eK8" firstAttribute="width" secondItem="54X-XB-spR" secondAttribute="width" id="3Zx-lp-0eo"/>
                                     <constraint firstItem="gij-Ny-N4k" firstAttribute="top" secondItem="BdJ-gD-tXM" secondAttribute="bottom" constant="-3" id="9QV-b3-tcT"/>
                                     <constraint firstItem="BdJ-gD-tXM" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="BeN-ls-Rfx"/>
+                                    <constraint firstItem="CZC-xs-6Do" firstAttribute="leading" secondItem="54X-XB-spR" secondAttribute="leading" id="C5Y-19-TGX"/>
                                     <constraint firstItem="OH1-oD-p7y" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="JSp-gu-JPN"/>
+                                    <constraint firstItem="CZC-xs-6Do" firstAttribute="top" secondItem="54X-XB-spR" secondAttribute="top" id="JYB-s1-i8K"/>
                                     <constraint firstItem="J7q-rD-UqT" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="O3m-2v-yTa"/>
                                     <constraint firstItem="cP2-Wf-eK8" firstAttribute="centerY" secondItem="54X-XB-spR" secondAttribute="centerY" id="QRR-uc-vOk"/>
-                                    <constraint firstItem="LZH-01-yX3" firstAttribute="top" secondItem="54X-XB-spR" secondAttribute="top" id="TXa-c6-Wst"/>
+                                    <constraint firstAttribute="trailing" secondItem="CZC-xs-6Do" secondAttribute="trailing" id="SS9-sj-PKg"/>
                                     <constraint firstItem="OH1-oD-p7y" firstAttribute="top" secondItem="gij-Ny-N4k" secondAttribute="bottom" constant="8" id="XK6-qk-Mu4"/>
                                     <constraint firstItem="gij-Ny-N4k" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="cWB-w1-CRb"/>
                                     <constraint firstItem="BdJ-gD-tXM" firstAttribute="top" secondItem="54X-XB-spR" secondAttribute="top" constant="78" id="fkt-qz-eKN"/>
-                                    <constraint firstAttribute="trailing" secondItem="LZH-01-yX3" secondAttribute="trailing" id="kXE-v4-rrG"/>
-                                    <constraint firstItem="LZH-01-yX3" firstAttribute="leading" secondItem="54X-XB-spR" secondAttribute="leading" id="mWA-PI-ned"/>
                                     <constraint firstAttribute="bottom" secondItem="J7q-rD-UqT" secondAttribute="bottom" constant="91" id="ryV-hZ-mGH"/>
+                                    <constraint firstItem="zKM-2T-iij" firstAttribute="centerY" secondItem="cP2-Wf-eK8" secondAttribute="centerY" id="t0j-Mk-YEe"/>
                                     <constraint firstItem="cP2-Wf-eK8" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="uli-Eg-eCV"/>
                                 </constraints>
                             </view>
@@ -379,6 +390,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingLabel" destination="zKM-2T-iij" id="fmH-4p-c7k"/>
                         <outlet property="locationTextArea" destination="cP2-Wf-eK8" id="Rlq-wT-lp2"/>
                         <outlet property="textArea" destination="cP2-Wf-eK8" id="yY5-Z5-OxP"/>
                         <segue destination="eag-j1-n5D" kind="show" identifier="MapPinView" id="nXM-xb-XwN"/>
@@ -497,6 +509,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oef-Ra-RMa"/>
+        <segue reference="Wfb-C1-oi9"/>
     </inferredMetricsTieBreakers>
 </document>

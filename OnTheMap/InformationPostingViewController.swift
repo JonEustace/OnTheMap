@@ -13,6 +13,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var locationTextArea: UITextView!
     @IBOutlet weak var textArea: UITextView!
+    @IBOutlet weak var loadingLabel: UILabel!
     var coordinates : CLLocationCoordinate2D?
     var annotations : [MKPointAnnotation]?
     var l1 : Double?
@@ -24,42 +25,43 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
         textArea.text = ""
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.textArea.delegate = self
-        
-        
     }
-    
-    
+
     @IBAction func cancel(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true) {}
     }
     
     
-    
-    
-    @IBAction func goToMapPinView(sender: AnyObject) {
-        
-        performSegueWithIdentifier("MapPinView", sender: self)
-        
-    }
     func textFieldDidBeginEditing(textField: UITextField) {
         textArea.text = ""
     }
     
     
-    
     @IBAction func loadPins(sender: AnyObject){
         
+        self.loadingLabel.hidden = false
+        
+        if Reachability.isConnectedToNetwork() == false {
+            self.alert("Not connected to network.")
+            loadingLabel.hidden = true
+            return
+        } else {
+            loadingLabel.hidden = false
+        }
         
         let geocoder = CLGeocoder()
-        
-        self.view.alpha = 0.3
         geocoder.geocodeAddressString(textArea.text!, completionHandler: {(placemarks, error) -> Void in
-            self.view.alpha = 1.0
+            self.loadingLabel.hidden = true
+            
             if((error) != nil){
                 self.alert("Address not found")
                 return
@@ -71,7 +73,6 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
                     self.coordinates = placemark.location!.coordinate
                     
                     self.annotations = [MKPointAnnotation]()
-                    
                     
                     self.l1 = self.coordinates!.latitude
                     self.l2 = self.coordinates!.longitude
@@ -100,5 +101,4 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
             vc.coordinates = self.coordinates
         }
     }
-    
 }

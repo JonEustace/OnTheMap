@@ -14,15 +14,10 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     @IBOutlet weak var mapView: MKMapView!
     
     let parse = ParseClient()
-    
     let uda = UdacityClient()
-   
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
-    
     var locationz = StudentInformationCollection.sharedInstance.locationz
     var locationStructs = StudentInformationCollection.sharedInstance.locationStructs
-    
     var students = Students.sharedInstance
     
     override func viewDidLoad() {
@@ -33,26 +28,25 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     }
     
     override func viewDidAppear(animated: Bool) {
-         self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = true
         reload()
     }
-    
-    
     
     @IBAction func reload() {
         
         self.mapView.alpha = 0.1
-      
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
-
         mapView.removeAnnotations( annotationsToRemove )
-     
         getStudentLocations()
-      
         self.loadPins()
     }
     
     func loadPins(){
+        
+        if Reachability.isConnectedToNetwork() == false {
+            self.alert("Not connected to network.")
+            return
+        }
         
         let locations = self.students.students
         
@@ -85,7 +79,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             
             // Finally we place the annotation in an array of annotations.
             annotations.append(annotation)
-           
+            
             
         }
         
@@ -93,7 +87,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
         
         dispatch_async(dispatch_get_main_queue()) {
             self.mapView.addAnnotations(annotations)
-             self.mapView.alpha = 1.0
+            self.mapView.alpha = 1.0
         }
         // self.mapView.addAnnotations(annotations)
     }
@@ -147,16 +141,12 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     }
     
     func getStudentLocations(){
-       
-        
         
         parse.accessParse(self, parameters: ["limit": 100, "order" : "-updatedAt"]) { (data, error) -> Void in
             
             guard error == nil else {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.alert(error!.localizedDescription)
-                  
-                   
                 }
                 return
             }
@@ -166,7 +156,6 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             self.loadPins()
             
         }
-        
     }
     
     func parseStudentLocations(){
