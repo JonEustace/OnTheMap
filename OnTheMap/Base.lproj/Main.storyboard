@@ -149,7 +149,7 @@
                                             </barButtonItem>
                                             <barButtonItem image="pin" id="9Xr-fK-2yD">
                                                 <connections>
-                                                    <segue destination="Hl6-Ps-s0a" kind="show" id="Wfb-C1-oi9"/>
+                                                    <segue destination="Hl6-Ps-s0a" kind="presentation" id="Wfb-C1-oi9"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -243,7 +243,7 @@
                                             </barButtonItem>
                                             <barButtonItem image="pin" id="SVk-D3-HEK">
                                                 <connections>
-                                                    <segue destination="Hl6-Ps-s0a" kind="show" id="oef-Ra-RMa"/>
+                                                    <segue destination="Hl6-Ps-s0a" kind="presentation" id="oef-Ra-RMa"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -338,6 +338,18 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZH-01-yX3">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <items>
+                                            <navigationItem id="97s-zQ-nrq">
+                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="xxm-is-w1A">
+                                                    <connections>
+                                                        <action selector="cancel:" destination="Hl6-Ps-s0a" id="Xvd-Y2-ezp"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -347,9 +359,12 @@
                                     <constraint firstItem="OH1-oD-p7y" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="JSp-gu-JPN"/>
                                     <constraint firstItem="J7q-rD-UqT" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="O3m-2v-yTa"/>
                                     <constraint firstItem="cP2-Wf-eK8" firstAttribute="centerY" secondItem="54X-XB-spR" secondAttribute="centerY" id="QRR-uc-vOk"/>
+                                    <constraint firstItem="LZH-01-yX3" firstAttribute="top" secondItem="54X-XB-spR" secondAttribute="top" id="TXa-c6-Wst"/>
                                     <constraint firstItem="OH1-oD-p7y" firstAttribute="top" secondItem="gij-Ny-N4k" secondAttribute="bottom" constant="8" id="XK6-qk-Mu4"/>
                                     <constraint firstItem="gij-Ny-N4k" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="cWB-w1-CRb"/>
                                     <constraint firstItem="BdJ-gD-tXM" firstAttribute="top" secondItem="54X-XB-spR" secondAttribute="top" constant="78" id="fkt-qz-eKN"/>
+                                    <constraint firstAttribute="trailing" secondItem="LZH-01-yX3" secondAttribute="trailing" id="kXE-v4-rrG"/>
+                                    <constraint firstItem="LZH-01-yX3" firstAttribute="leading" secondItem="54X-XB-spR" secondAttribute="leading" id="mWA-PI-ned"/>
                                     <constraint firstAttribute="bottom" secondItem="J7q-rD-UqT" secondAttribute="bottom" constant="91" id="ryV-hZ-mGH"/>
                                     <constraint firstItem="cP2-Wf-eK8" firstAttribute="centerX" secondItem="54X-XB-spR" secondAttribute="centerX" id="uli-Eg-eCV"/>
                                 </constraints>
@@ -391,7 +406,7 @@
                                     <outlet property="delegate" destination="eag-j1-n5D" id="aFE-ud-LSr"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-jD-p1I">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xX-jD-p1I">
                                 <rect key="frame" x="260" y="470" width="81" height="30"/>
                                 <color key="backgroundColor" red="0.75294117647058822" green="0.80000000000000004" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -482,6 +497,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wfb-C1-oi9"/>
+        <segue reference="oef-Ra-RMa"/>
     </inferredMetricsTieBreakers>
 </document>

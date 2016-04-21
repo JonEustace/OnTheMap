@@ -28,12 +28,16 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.textArea.delegate = self
-       
+        
         
     }
     
     
-
+    @IBAction func cancel(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true) {}
+    }
+    
     
     
     
@@ -50,7 +54,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
     
     @IBAction func loadPins(sender: AnyObject){
         
-       
+        
         let geocoder = CLGeocoder()
         
         self.view.alpha = 0.3
@@ -64,18 +68,18 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
             if let placemark = placemarks?.first {
                 
                 dispatch_async(dispatch_get_main_queue()) {
-                self.coordinates = placemark.location!.coordinate
-                
-                self.annotations = [MKPointAnnotation]()
-                
-                
-                self.l1 = self.coordinates!.latitude
-                self.l2 = self.coordinates!.longitude
-                
-                
-                self.region = MKCoordinateRegion(center: self.coordinates!, span: MKCoordinateSpan(latitudeDelta: 0.75, longitudeDelta: 0.75))
-                  
-                     dispatch_async(dispatch_get_main_queue()) {
+                    self.coordinates = placemark.location!.coordinate
+                    
+                    self.annotations = [MKPointAnnotation]()
+                    
+                    
+                    self.l1 = self.coordinates!.latitude
+                    self.l2 = self.coordinates!.longitude
+                    
+                    
+                    self.region = MKCoordinateRegion(center: self.coordinates!, span: MKCoordinateSpan(latitudeDelta: 0.75, longitudeDelta: 0.75))
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
                         self.performSegueWithIdentifier("MapPinView", sender: self)
                     }
                 }
