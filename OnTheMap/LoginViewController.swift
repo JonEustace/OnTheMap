@@ -101,6 +101,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         guard (Reachability.isConnectedToNetwork() == true) else{
             
             alert("No network connectivity")
+            self.activityIndicatorView.stopAnimating()
             return
         }
         
@@ -112,6 +113,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 guard error.code == 0 else{
                     dispatch_async(dispatch_get_main_queue()) {
+                        self.activityIndicatorView.stopAnimating()
                         self.alert("Login Error")
                     }
                     

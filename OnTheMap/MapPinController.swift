@@ -27,7 +27,7 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.navigationController?.navigationBarHidden = true
-        self.loadPins()
+        self.loadPinsToMap()
         self.textArea.delegate = self
     }
     
@@ -65,15 +65,12 @@ class MapPinController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
                     return
                 }
                 
-                let vc = self.navigationController?.viewControllers[1]
-                
-                self.navigationController?.popToViewController(vc!, animated: true)
-                
+                self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: {})
             }
         }
     }
     
-    func loadPins(){
+    func loadPinsToMap(){
         
         self.mapView.setRegion(self.region, animated: true)
         

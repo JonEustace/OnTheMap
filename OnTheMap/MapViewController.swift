@@ -18,7 +18,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var locationz = StudentInformationCollection.sharedInstance.locationz
     var locationStructs = StudentInformationCollection.sharedInstance.locationStructs
-    var students = Students.sharedInstance
+    var studentCollection = Students.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +37,19 @@ class MapViewController : UIViewController, MKMapViewDelegate{
         self.mapView.alpha = 0.1
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
         mapView.removeAnnotations( annotationsToRemove )
+        studentCollection.students.removeAll()
         getStudentLocations()
-        self.loadPins()
+        self.loadPinsToMap()
     }
     
-    func loadPins(){
+    func loadPinsToMap(){
         
         if Reachability.isConnectedToNetwork() == false {
             self.alert("Not connected to network.")
             return
         }
         
-        let locations = self.students.students
+        let locations = self.studentCollection.students
         
         // We will create an MKPointAnnotation for each dictionary in "locations". The
         // point annotations will be stored in this array, and then provided to the map view.
@@ -153,7 +154,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             
             self.locationz = (data["results"] as? [[String:AnyObject]])!
             self.parseStudentLocations()
-            self.loadPins()
+            self.loadPinsToMap()
             
         }
     }
@@ -164,7 +165,7 @@ class MapViewController : UIViewController, MKMapViewDelegate{
             
             let student = StudentInformation(studentDictionary: location)
             
-            self.students.students.append(student)
+            self.studentCollection.students.append(student)
             
         }
     }

@@ -54,6 +54,7 @@ class InformationPostingViewController : UIViewController, UITextViewDelegate{
         
         if Reachability.isConnectedToNetwork() == false {
             self.alert("Not connected to network.")
+            self.activityIndicator.stopAnimating()
             return
         }
         
